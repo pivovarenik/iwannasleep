@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- USERS -->
+    <changeSet id="1" author="kucher">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="password_hash" type="TEXT"/>
+            <column name="role" type="VARCHAR(50)"/>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- AD CAMPAIGNS -->
+    <changeSet id="2" author="you">
+        <createTable tableName="ad_campaigns">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="start_date" type="DATE"/>
+            <column name="end_date" type="DATE"/>
+            <column name="budget" type="DECIMAL(15,2)"/>
+            <column name="target_audience" type="TEXT"/>
+            <column name="status" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- AD_ROI -->
+    <changeSet id="3" author="kucher">
+        <createTable tableName="ad_roi">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="ad_spent" type="DECIMAL(15,2)"/>
+            <column name="revenue_generated" type="DECIMAL(15,2)"/>
+            <column name="roi" type="DECIMAL(10,2)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="ad_roi"
+                                 constraintName="fk_ad_campaigns"
+                                 baseColumnNames="campaign_id"
+                                 referencedTableName="ad_campaigns"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- CREATIVES -->
+    <changeSet id="4" author="kucher">
+        <createTable tableName="creatives">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="type" type="VARCHAR(50)"/>
+            <column name="content_url" type="TEXT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="is_active" type="TINYINT(1)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="creatives"
+                                 baseColumnNames="campaign_id"
+                                 constraintName="fk_creatives_campaign"
+                                 referencedTableName="ad_campaigns"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- REVIEWS -->
+    <changeSet id="5" author="kucher">
+        <createTable tableName="reviews">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="source" type="VARCHAR(255)"/>
+            <column name="content_text" type="TEXT"/>
+            <column name="sentiment" type="VARCHAR(50)"/>
+            <column name="created_at" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- PERFORMANCE METRICS -->
+    <changeSet id="6" author="kucher">
+        <createTable tableName="performance_metrics">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="impressions" type="INT"/>
+            <column name="clicks" type="INT"/>
+            <column name="conversion_rate" type="DECIMAL(5,2)"/>
+            <column name="engagement_rate" type="DECIMAL(5,2)"/>
+            <column name="recorded_at" type="TIMESTAMP"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="performance_metrics"
+                                 baseColumnNames="campaign_id"
+                                 constraintName="fk_performance_campaign"
+                                 referencedTableName="ad_campaigns"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- REPUTATION RISKS -->
+    <changeSet id="7" author="kucher">
+        <createTable tableName="reputation_risks">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="risk_description" type="TEXT"/>
+            <column name="source" type="VARCHAR(255)"/>
+            <column name="risk_level" type="VARCHAR(50)"/>
+            <column name="related_campaign_id" type="BIGINT"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="reputation_risks"
+                                 constraintName="fk_reputation_related"
+                                 baseColumnNames="related_campaign_id"
+                                 referencedTableName="ad_campaigns"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- BUSINESS ANALYTICS -->
+    <changeSet id="8" author="kucher">
+        <createTable tableName="business_analytics">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="sales_growth" type="DECIMAL(10,2)"/>
+            <column name="customer_loyalty" type="DECIMAL(10,2)"/>
+            <column name="business_impact_score" type="DECIMAL(10,2)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="business_analytics"
+                                 baseColumnNames="campaign_id"
+                                 constraintName="fk_business_campaign"
+                                 referencedTableName="ad_campaigns"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- AUDIENCE -->
+    <changeSet id="9" author="kucher">
+        <createTable tableName="audience">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="campaign_id" type="BIGINT"/>
+            <column name="segment_name" type="VARCHAR(255)"/>
+            <column name="age_range" type="VARCHAR(50)"/>
+            <column name="gender" type="VARCHAR(50)"/>
+            <column name="engagement_score" type="DECIMAL(5,2)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="audience"
+                                 baseColumnNames="campaign_id"
+                                 constraintName="fk_audience_campaign"
+                                 referencedTableName="ad_campaigns"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

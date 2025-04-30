@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "566cf4db-4acc-4a6e-be54-8f2b64dabe4a",
+		"name": "course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35070076"
+	},
+	"item": [
+		{
+			"name": "SignUpRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Дмитsdsfdfdий\",\r\n    \"passwordHash\":\"121212\",\r\n    \"role\":\"Marketer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/signUp",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignInRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Дмитsdsfdfdий\",\r\n    \"passwordHash\":\"121212\",\r\n    \"role\":\"Marketer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/signIn",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApproveUser",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetNotApprovedUsers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAdCampaign",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ1OTg1MDY0LCJleHAiOjE3NDYwNDUwNjR9.BPoiOmdXJ_KZfRZNOPTA7Vz8u-Qztj6oQsfYk2N91k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 42,\r\n  \"name\": \"Holiday Promotion\",\r\n  \"startDate\": \"2023-12-01\",\r\n  \"endDate\": \"2023-12-31\",\r\n  \"budget\": 10000.50,\r\n  \"targetAudience\": \"families with children\",\r\n  \"status\": \"PLANNED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/campaigns",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaigns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCampaigns",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/campaigns",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaigns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindCampaignById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAdCampaogn",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ1OTg1MDY0LCJleHAiOjE3NDYwNDUwNjR9.BPoiOmdXJ_KZfRZNOPTA7Vz8u-Qztj6oQsfYk2N91k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/campaigns/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaigns",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAdCampaign",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ1OTg1MDY0LCJleHAiOjE3NDYwNDUwNjR9.BPoiOmdXJ_KZfRZNOPTA7Vz8u-Qztj6oQsfYk2N91k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Summer Sale Campaign\",\r\n  \"startDate\": \"2023-06-01\",\r\n  \"endDate\": \"2023-08-31\",\r\n  \"budget\": 5000.00,\r\n  \"targetAudience\": \"young adults 18-35\",\r\n  \"status\": \"ACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/campaigns/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaigns",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeCampaignStatus",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ1OTg1MDY0LCJleHAiOjE3NDYwNDUwNjR9.BPoiOmdXJ_KZfRZNOPTA7Vz8u-Qztj6oQsfYk2N91k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/campaigns/3/status?status=a",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaigns",
+						"3",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCampaignTime",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ1OTg1MDY0LCJleHAiOjE3NDYwNDUwNjR9.BPoiOmdXJ_KZfRZNOPTA7Vz8u-Qztj6oQsfYk2N91k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/campaigns/3/time",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaigns",
+						"3",
+						"time"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTargetAudience",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create(ive)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ1OTg1MDY0LCJleHAiOjE3NDYwNDUwNjR9.BPoiOmdXJ_KZfRZNOPTA7Vz8u-Qztj6oQsfYk2N91k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"campaignName\":\"Summer Sale Campaign\",\r\n    \"type\":\"idk what the fuck the type is, water idk\",\r\n    \"contentUrl\":\"your_Url_i_guess\",\r\n    \"createdAt\":\"2025-05-30T18:30:00\",\r\n    \"isActive\":\"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/creatives",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creatives"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
