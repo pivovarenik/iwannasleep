@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Getter
+@Setter
 @Table(name = "users")
 public class User {
     @Id
