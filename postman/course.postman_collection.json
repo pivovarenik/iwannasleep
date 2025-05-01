@@ -328,10 +328,506 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "getCreatives",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/creatives",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creatives"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getcreativebycampaign",
 			"request": {
 				"method": "GET",
 				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "updatecreative",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ2MDg1NjY2LCJleHAiOjE3NDYxNDU2NjZ9.6DMCmKxzODJReiewS2zrqXHoPgPOUHVhQdWuY21md18",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"campaignName\":\"Summer Sale Campaign\",\r\n    \"type\":\"2323\",\r\n    \"contentUrl\":\"your_Url_i_guess\",\r\n    \"createdAt\":\"2025-05-30T18:30:00\",\r\n    \"isActive\":\"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/creatives/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creatives",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCreative",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ2MDg1NjY2LCJleHAiOjE3NDYxNDU2NjZ9.6DMCmKxzODJReiewS2zrqXHoPgPOUHVhQdWuY21md18",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/creatives/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creatives",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All AdRois",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ad-roi",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ad-roi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create AdRoi",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"campaignName\": \"Campaign 1\",\n    \"adSpent\": 1000.0,\n    \"revenueGenerated\": 2000.0,\n    \"roi\": 100.0\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ad-roi",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ad-roi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete AdRoi by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ad-roi/{{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ad-roi",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All ReputationRisks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reputation-risk",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reputation-risk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ReputationRisk",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"campaignName\": \"Campaign 1\",\n    \"riskDescription\": \"Negative press coverage\",\n    \"source\": \"News Site\",\n    \"riskLevel\": \"High\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/reputation-risk",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reputation-risk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete ReputationRisk by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reputation-risk/{{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reputation-risk",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All PerformanceMetrics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/performance-metric",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"performance-metric"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create PerformanceMetric",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"campaignName\": \"Campaign 1\",\n    \"impressions\": 10000,\n    \"clicks\": 500,\n    \"conversionRate\": 5.0,\n    \"engagementRate\": 7.5,\n    \"recordedAt\": \"2025-05-01T08:08:31.566498\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/performance-metric",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"performance-metric"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete PerformanceMetric by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/performance-metric/{{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"performance-metric",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create BusinessAnalytic",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"campaignId\": 1, \"salesGrowth\": 10.5, \"customerLoyalty\": 8.2, \"businessImpactScore\": 7.9}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/business-analytics",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"business-analytics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All BusinessAnalytics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/business-analytics",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"business-analytics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBusinessAnalyticByID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ2MDg4NTg0LCJleHAiOjE3NDYxNDg1ODR9.ddWM3ZeZoD828qFYCx6-OCKTWsiq_iYvOw4_jS09NrA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"campaignName\": \"Campaign 1\",\r\n    \"salesGrowth\": 11.5,\r\n    \"customerLoyalty\": 8.2,\r\n    \"businessImpactScore\": 7.9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/business-analytics/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business-analytics",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dELETE BUS BY ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ2MDg4NTg0LCJleHAiOjE3NDYxNDg1ODR9.ddWM3ZeZoD828qFYCx6-OCKTWsiq_iYvOw4_jS09NrA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/business-analytics/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"business-analytics",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Audience",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"campaignId\": 1, \"segmentName\": \"Tech Enthusiasts\", \"ageRange\": \"25-34\", \"gender\": \"Male\", \"engagementScore\": 4.5}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/audience",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"audience"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Audience",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/audience",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"audience"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateaudienceID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ2MDg4NTg0LCJleHAiOjE3NDYxNDg1ODR9.ddWM3ZeZoD828qFYCx6-OCKTWsiq_iYvOw4_jS09NrA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"campaignName\": \"Campaign 1\",\r\n    \"segmentName\": \"T2ch Enthusiasts\",\r\n    \"ageRange\": \"25-34\",\r\n    \"gender\": \"Male\",\r\n    \"engagementScore\": 4.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/audience/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"audience",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAudienceBYid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXBfaGVhZCIsInJvbGUiOiJEZXBhcnRtZW50X0hlYWQiLCJhdXRob3JpdGllcyI6WyJEZXBhcnRtZW50X0hlYWQiXSwiaWF0IjoxNzQ2MDg4NTg0LCJleHAiOjE3NDYxNDg1ODR9.ddWM3ZeZoD828qFYCx6-OCKTWsiq_iYvOw4_jS09NrA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/audience/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"audience",
+						"1"
+					]
+				}
 			},
 			"response": []
 		}
